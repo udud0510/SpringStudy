@@ -22,13 +22,12 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping(value = "/sample/*")
 public class SampleController {
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(dateFormat, false));
-	}
-
+	/*
+	 * @InitBinder public void initBinder(WebDataBinder binder) { SimpleDateFormat
+	 * dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	 * binder.registerCustomEditor(java.util.Date.class, new
+	 * CustomDateEditor(dateFormat, false)); }
+	 */
 	@RequestMapping(value = "")
 	public void basic() {
 		log.info("basic..................");
