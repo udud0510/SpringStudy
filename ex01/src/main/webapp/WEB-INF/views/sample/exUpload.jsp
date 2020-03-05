@@ -10,7 +10,6 @@
 
 	<form action="/sample/exUploadPost" method="post"
 		enctype="multipart/form-data">
-
 		<div>
 			<input type='file' name='files'>
 		</div>
@@ -30,5 +29,6 @@
 			<input type='submit'>
 		</div>
 	</form>
+	
 </body>
 </html>
