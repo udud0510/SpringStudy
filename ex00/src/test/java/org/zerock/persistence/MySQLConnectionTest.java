@@ -1,10 +1,11 @@
+package org.zerock.persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 import org.junit.Test;
 
 public class MySQLConnectionTest {
-	private static final String URL = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC";
+	private static final String URL = "jdbc:mysql://127.0.0.1:3306/world?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC";
 	private static final String USER = "root";
 	private static final String PASSWORD = "0224";
 	static {
