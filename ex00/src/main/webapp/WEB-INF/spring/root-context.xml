@@ -25,6 +25,6 @@
 		<constructor-arg ref="hikariConfig" />
 	</bean>
 	
-	<context:component-scan base-package="org.zerock.persistence"></context:component-scan>
+	<context:component-scan base-package="org.zerock.sample"></context:component-scan>
 
 </beans>
