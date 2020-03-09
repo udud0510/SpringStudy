@@ -11,6 +11,12 @@
 		values (#{title}, #{content},#{writer})
 	</insert>
 	
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">select *from (select max(bno)+1 from tbl_board) next</selectKey>
+			insert into tbl_board (bno,title,content,writer)
+			values (#{bno},#{title}, #{content},#{writer})
+	</insert>
+	
 	<select id="read" resultType="org.zerock.domain.BoardVO">
 		select * from tbl_board where bno = #{bno}
 	</select>

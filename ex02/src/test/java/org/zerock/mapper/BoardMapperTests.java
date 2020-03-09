@@ -33,7 +33,19 @@ public class BoardMapperTests {
 		mapper.insert(board);
 		log.info(board);
 	}
+*/
+	@Test
+	public void testInsertSelectKey() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글 select key");
+		board.setContent("새로 작성하는 내용 select key");
+		board.setWriter("newbie");
+
+		mapper.insertSelectKey(board);
+		log.info(board);
+	}
 	
+/*	
 	@Test
 	public void testRead() {
 		BoardVO board = mapper.read(6L);
@@ -44,7 +56,7 @@ public class BoardMapperTests {
 	public void testDelete() {
 		log.info("DELETE COUNT: " + mapper.delete(4L));
 	}
-*/
+
 	@Test
 	public void testUpdate() {
 		BoardVO board = new BoardVO();
@@ -56,4 +68,5 @@ public class BoardMapperTests {
 		int count=mapper.update(board);
 		log.info("UPDATE COUNT: " + count);
 	}
+*/
 }
