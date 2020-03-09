@@ -15,7 +15,7 @@
 			value="com.mysql.cj.jdbc.Driver" />
 
 		<property name="jdbcUrl"
-			value="jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC" />
+			value="jdbc:mysql://127.0.0.1:3306/seq_board?autoReconnect=true&amp;serverTimezone=UTC" />
 
 		<property name="username" value="root" />
 
@@ -32,8 +32,10 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
+
 	<context:component-scan
 		base-package="org.zerock.mapper"></context:component-scan>
+	<mybatis-spring:scan
+		base-package="org.zerock.mapper" />
 
 </beans>
