@@ -35,7 +35,6 @@
 							<tr>
 								<td><c:out value="${board.bno}" /></td>
 								<td><c:out value="${board.title}" /></td>
-								<td><c:out value="${board.content}" /></td>
 								<td><c:out value="${board.writer}" /></td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd"
 										value="${board.regdate }" /></td>
