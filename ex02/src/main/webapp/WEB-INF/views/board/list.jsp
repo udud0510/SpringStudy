@@ -16,7 +16,11 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">Board List Page</div>
+			<div class="panel-heading">
+				Board List Page
+				<button id='regBtn' type="button" class="btn btn-xs pull-right">Register
+					New Board</button>
+			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<div class="table-responsive">
@@ -86,18 +90,21 @@
 			return;
 		}
 		if (parseInt(result) > 0) {
-			$(".modal-body").html(
-					"게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+			$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
 		}
-	
+
 		$("#myModal").modal("show");
 	}
 
 	$(document).ready(function() {
 		var result = '<c:out value="${result}"/>';
 		checkModal(result);
-		
+
 	});
+
+	$("#regBtn").on("click", function() {
+		self.location = "/board/register";
+	})
 </script>
 
 <%@include file="../includes/footer.jsp"%>
