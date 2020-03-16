@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -36,17 +37,18 @@ public class BoardServiceTests {
 		service.register(board);
 		log.info("셍성된 게시물의 번호 : " + board.getBno());
 	}
-
+*/
 	@Test
 	public void testGetList() {
-		service.getList().forEach(board -> log.info(board));
+		//service.getList().forEach(board -> log.info(board));
+		service.getList(new Criteria(2,10)).forEach(board ->log.info(board));
 	}
-
+/*
 	@Test
 	public void testGet() {
 		log.info(service.get(10L));
 	}
-*/
+
 	@Test
 	public void testDelete() {
 		log.info("REMOVE RESULT: " + service.remove(2L));
@@ -61,4 +63,5 @@ public class BoardServiceTests {
 		board.setTitle("제목수정합니다.");
 		log.info("Modify RESULT: " + service.modify(board));
 	}
+	*/
 }
