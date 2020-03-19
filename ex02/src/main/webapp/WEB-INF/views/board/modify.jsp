@@ -23,7 +23,7 @@
 					<!-- 추가 -->
 					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
 					<input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
-					
+
 					<div class="form-group">
 						<label>Bno</label>
 						<input class="form-control" name='bno' value='<c:out value="${board.bno }"/>' readonly="readonly">
@@ -63,22 +63,34 @@
 <!-- /.row -->
 
 <script type="text/javascript">
+
 	$(document).ready(function() {
+		
 		var formObj = $("form");
+		
 		$('button').on("click", function(e) {
 			// form은 기본으로 모두 submit 처리를 하기때문에 preventDefault()를 이용해서 submit 막기
 			e.preventDefault();
+			
 			var operation = $(this).data("oper");
+			
 			console.log(operation);
 
 			if (operation === 'remove') {
 				formObj.attr("action", "/board/remove");
 			} else if (operation === 'list') {
 				formObj.attr("action", "/board/list").attr("method", "get");
+				
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var amountTag = $("input[name='amount']").clone();
+				
 				formObj.empty();
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
 			}
 			formObj.submit();
 		});
 	});
+	
 </script>
 <%@include file="../includes/footer.jsp"%>
