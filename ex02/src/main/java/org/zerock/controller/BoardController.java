@@ -31,7 +31,11 @@ public class BoardController {
 		log.info("list : " + cri);
 		// list라는 곳에 service.getList()값 저장
 		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
+
+		int total = service.getTotal(cri);
+		log.info("total: " + total);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 
 	@GetMapping("/register")
