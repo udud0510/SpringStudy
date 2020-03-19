@@ -11,7 +11,7 @@
 <script src="/resources/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
 <!-- Page-Level Plugin Scripts - Tables -->
-<script src="/resources/js/plugins/dataTables/jquery.dataTables.js"></script>
+<!-- <script src="/resources/js/plugins/dataTables/jquery.dataTables.js"></script> -->
 <script src="/resources/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
 <!-- SB Admin Scripts - Include with every page -->
