@@ -71,7 +71,7 @@ public class BoardMapperTests {
 		int count=mapper.update(board);
 		log.info("UPDATE COUNT: " + count);
 	}
-*/
+
 	@Test
 	public void testPaging() {
 		Criteria cri = new Criteria();
@@ -80,5 +80,21 @@ public class BoardMapperTests {
 		cri.setAmount(3);
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		list.forEach(board->log.info(board.getBno()));
+	}
+*/
+	@Test
+	public void testSearch() {
+		Criteria cri = new Criteria();
+		cri.setKeyword("몯");
+		cri.setType("CW");
+		
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		
+		System.out.println("키워드 : "+cri.getKeyword());
+		System.out.println("타입"+cri.getType());
+		System.out.println("페이지넘버 : "+cri.getPageNum());
+		System.out.println("쿼리 : "+mapper.getListWithPaging(cri));
+		
+		list.forEach(board -> log.info(board));
 	}
 }
