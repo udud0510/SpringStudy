@@ -49,7 +49,7 @@
 	<insert id="insert">
 		insert into tbl_board (title,content,writer)
 		values
-		(#{title}, #{content},#{writer})
+		(#{title}, #{content}, #{writer})
 	</insert>
 
 	<insert id="insertSelectKey">
@@ -58,12 +58,11 @@
 		</selectKey>
 		insert into tbl_board (bno,title,content,writer)
 		values
-		(#{bno},#{title}, #{content},#{writer})
+		(#{bno}, #{title}, #{content}, #{writer})
 	</insert>
 
 	<select id="read" resultType="org.zerock.domain.BoardVO">
-		select * from tbl_board where bno =
-		#{bno}
+		select * from tbl_board where bno = #{bno}
 	</select>
 
 	<delete id="delete">
