@@ -6,7 +6,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,5 +49,17 @@ public class SampleController {
 		map.put("First", new SampleVO(111, "그루트", "주니어"));
 
 		return map;
+	}
+
+	@GetMapping(value = "/check")
+	public ResponseEntity<SampleVO> check(Double height, Double weight) {
+		SampleVO vo = new SampleVO(0, "" + height, "" + weight);
+		ResponseEntity<SampleVO> result = null;
+		if(height<150) {
+			result=ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
+		}else {
+			result=ResponseEntity.status(HttpStatus.OK).body(vo);
+		}
+		return result;
 	}
 }
