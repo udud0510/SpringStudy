@@ -17,4 +17,11 @@
 	<update id="update">
 		update tbl_reply set reply=#{reply}, updateDate=CURRENT_TIMESTAMP where rno=#{rno}
 	</update>
+	
+	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
+		select rno, bno, reply, replyer, replyDate, updateDate
+		from tbl_reply
+		where bno=#{bno}
+		order by rno asc
+	</select>
 </mapper>
