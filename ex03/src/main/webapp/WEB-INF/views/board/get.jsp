@@ -161,16 +161,54 @@
             var reply = {
                 reply: modalInputReply.val(),
                 replyer: modalInputReplyer.val(),
-                bno:bnoValue
+                bno: bnoValue
             };
 
-            replyService.add(reply,function (result) {
+            replyService.add(reply, function (result) {
                 alert(result);
                 modal.find("input").val("");
                 modal.modal("hide");
                 showList(1);
             });
 
+        });
+
+        // 댓글 수정 기능 추가
+        $(".chat").on("click", "li", function (e) {
+            var rno = $(this).data("rno");
+            replyService.get(rno, function (reply) {
+                modalInputReply.val(reply.reply);
+                modalInputReplyer.val(reply.replyer);
+                modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readOnly", "readOnly");
+                modal.data("rno", reply.rno);
+
+                modalRegisterBtn.hide();
+
+                $(".modal").modal("show");
+
+            });
+        });
+
+        modalModBtn.on("click", function (e) {
+            // 댓글 내용만 수정되게
+            var reply = {rno: modal.data("rno"), reply: modalInputReply.val()};
+
+            replyService.update(reply, function (result) {
+                alert(result);
+                modal.modal("hide");
+                showList(1);
+            });
+        });
+
+        // 댓글 삭제 기능 추가
+        modalRemoveBtn.on("click", function (e) {
+            var rno = modal.data("rno");
+
+            replyService.remove(rno, function (result) {
+                alert(result);
+                modal.modal("hide");
+                showList(1);
+            });
         });
     });
     console.log("=================");

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="ex03:war exploded">
-    <output-path>$PROJECT_DIR$/ex03/target/controller-1.0.0-BUILD-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/ex03/src/main/webapp</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
