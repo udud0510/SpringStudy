@@ -19,62 +19,70 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ReplyMapperTests {
 
-	private Long[] bnoArr = { 1L, 5L, 6L, 7L, 9L };
+    private Long[] bnoArr = {1L, 5L, 6L, 7L, 9L};
 
-	@Setter(onMethod_ = @Autowired)
-	private ReplyMapper mapper;
-/*
-	@Test
-	public void testCreate() {
-		IntStream.rangeClosed(1, 10).forEach(i -> {
-			ReplyVO vo = new ReplyVO();
+    @Setter(onMethod_ = @Autowired)
+    private ReplyMapper mapper;
 
-			// 게시물의 번호
-			vo.setBno(bnoArr[i % 5]);
-			vo.setReply("댓글 테스트 " + i);
-			vo.setReplyer("replyer" + i);
+    /*
+        @Test
+        public void testCreate() {
+            IntStream.rangeClosed(1, 10).forEach(i -> {
+                ReplyVO vo = new ReplyVO();
 
-			mapper.insert(vo);
-		});
-	}
+                // 게시물의 번호
+                vo.setBno(bnoArr[i % 5]);
+                vo.setReply("댓글 테스트 " + i);
+                vo.setReplyer("replyer" + i);
 
-	@Test
-	public void testRead() {
-		Long targetRno = 5L;
-		ReplyVO vo = mapper.read(targetRno);
-		log.info(vo);
-	}
+                mapper.insert(vo);
+            });
+        }
 
-	@Test
-	public void testDelete() {
-		Long targetRno = 5L;
-		mapper.delete(targetRno);
-	}
+        @Test
+        public void testRead() {
+            Long targetRno = 5L;
+            ReplyVO vo = mapper.read(targetRno);
+            log.info(vo);
+        }
 
-	@Test
-	public void testUpdate() {
+        @Test
+        public void testDelete() {
+            Long targetRno = 5L;
+            mapper.delete(targetRno);
+        }
 
-		Long targetRno = 10L;
-		
-		ReplyVO vo = mapper.read(targetRno);
+        @Test
+        public void testUpdate() {
 
-		// 게시물의 번호
-		vo.setReply("Update Reply  ");
-		int count=mapper.update(vo);
-		
-		log.info("UPDATE COUNT : " + count);
-	}
+            Long targetRno = 10L;
 
-	@Test
-	public void testMapper() {
-		log.info(mapper);
-	}
-*/	
-	@Test
-	public void testLIst() {
-		Criteria cri = new Criteria();
-		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
-		
-		replies.forEach(reply -> log.info(reply));
-	}
+            ReplyVO vo = mapper.read(targetRno);
+
+            // 게시물의 번호
+            vo.setReply("Update Reply  ");
+            int count=mapper.update(vo);
+
+            log.info("UPDATE COUNT : " + count);
+        }
+
+        @Test
+        public void testMapper() {
+            log.info(mapper);
+        }
+
+        @Test
+        public void testList() {
+            Criteria cri = new Criteria();
+            List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+
+            replies.forEach(reply -> log.info(reply));
+        }
+        */
+    @Test
+    public void testList2() {
+        Criteria cri = new Criteria(2, 10);
+        List<ReplyVO> replies = mapper.getListWithPaging(cri, 5L);
+        replies.forEach(reply -> log.info(reply));
+    }
 }
