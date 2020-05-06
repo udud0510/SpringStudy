@@ -20,14 +20,18 @@
 
     <select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
         <![CDATA[
-
-                SELECT rno, bno, reply, replyer, replyDate, updateDate
-                from(
-                SELECT @rownum := @rownum+1 AS rn, rno, bno, reply, replyer, replyDate, updateDate
-                FROM seq_board.tbl_reply, (SELECT @rownum :=0) AS rn
-                where bno=#{bno} and rno>0 and @rownum<= #{cri.pageNum} * #{cri.amount}) AS r
-                where rn > (#{cri.pageNum} -1) * #{cri.amount}
-
+		SELECT rno, bno, reply, replyer, replyDate, updateDate
+        from(
+        SELECT @rownum := @rownum+1 AS rn, rno, bno, reply, replyer, replyDate, updateDate
+        FROM seq_board.tbl_reply, (SELECT @rownum :=0) AS rn
+        where bno=#{bno} and rno>0 and @rownum<= #{cri.pageNum} * #{cri.amount}) AS r
+        where rn > (#{cri.pageNum} -1) * #{cri.amount}
         ]]>
     </select>
+
+	<select id="getCountByBno" resultType="int">
+		<![CDATA[
+		select count(rno) from seq_board.tbl_reply where bno = #{bno}
+		]]>
+	</select>
 </mapper>
