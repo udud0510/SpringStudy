@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="controller:war">
+    <output-path>$PROJECT_DIR$/ex04/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>controller</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ex04-1.0.0-BUILD-SNAPSHOT.war">
+      <element id="artifact" artifact-name="controller:war exploded" />
+    </root>
+  </artifact>
+</component>

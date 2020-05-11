@@ -5,16 +5,17 @@
     <file type="web" url="file://$PROJECT_DIR$/ex01" />
     <file type="web" url="file://$PROJECT_DIR$/ex02" />
     <file type="web" url="file://$PROJECT_DIR$/ex03" />
+    <file type="web" url="file://$PROJECT_DIR$/ex04" />
     <file type="web" url="file://$PROJECT_DIR$/jex00" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/ex02/pom.xml" />
         <option value="$PROJECT_DIR$/jex00/pom.xml" />
         <option value="$PROJECT_DIR$/ex01/pom.xml" />
         <option value="$PROJECT_DIR$/ex03/pom.xml" />
         <option value="$PROJECT_DIR$/ex00/pom.xml" />
+        <option value="$PROJECT_DIR$/ex04/pom.xml" />
       </list>
     </option>
   </component>
