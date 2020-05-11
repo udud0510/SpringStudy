@@ -10,14 +10,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @Log4j
-@ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml" })
+@ContextConfiguration({"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 public class SampleServiceTests {
     @Setter(onMethod_ = @Autowired)
     private SampleService service;
 
     @Test
-    public void testClass(){
+    public void testClass() {
         log.info(service);
         log.info(service.getClass().getName());
+    }
+
+    @Test
+    public void testAdd() throws Exception {
+        log.info(service.doAdd("123", "456"));
     }
 }
