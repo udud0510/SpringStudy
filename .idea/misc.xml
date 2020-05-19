@@ -6,6 +6,7 @@
     <file type="web" url="file://$PROJECT_DIR$/ex02" />
     <file type="web" url="file://$PROJECT_DIR$/ex03" />
     <file type="web" url="file://$PROJECT_DIR$/ex04" />
+    <file type="web" url="file://$PROJECT_DIR$/ex05" />
     <file type="web" url="file://$PROJECT_DIR$/jex00" />
   </component>
   <component name="MavenProjectsManager">
@@ -16,6 +17,7 @@
         <option value="$PROJECT_DIR$/ex03/pom.xml" />
         <option value="$PROJECT_DIR$/ex00/pom.xml" />
         <option value="$PROJECT_DIR$/ex04/pom.xml" />
+        <option value="$PROJECT_DIR$/ex05/pom.xml" />
       </list>
     </option>
   </component>

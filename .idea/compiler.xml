@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jex00" />
-        <module name="ex03" />
+        <module name="ex05" />
         <module name="ex04" />
+        <module name="ex03" />
         <module name="ex01" />
         <module name="ex00" />
+        <module name="jex00" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="ex02" target="1.8" />
       <module name="ex03" target="1.8" />
       <module name="ex04" target="1.8" />
+      <module name="ex05" target="1.8" />
       <module name="jex00" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -32,6 +34,7 @@
       <module name="ex02" options="-Xlint:all" />
       <module name="ex03" options="-Xlint:all" />
       <module name="ex04" options="-Xlint:all" />
+      <module name="ex05" options="-Xlint:all" />
       <module name="jex00" options="-Xlint:all" />
     </option>
   </component>
