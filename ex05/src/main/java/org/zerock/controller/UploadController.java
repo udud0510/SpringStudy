@@ -6,11 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
+import sun.rmi.runtime.NewThreadAction;
 
 import java.io.File;
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 @Controller
 @Log4j
@@ -78,6 +80,9 @@ public class UploadController {
             // IE has file path
             uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("/") + 1);
             log.info("only file name : " + uploadFileName);
+
+            UUID uuid = UUID.randomUUID();
+            uploadFileName = uuid.toString() + "_" + uploadFileName;
 
             File saveFile = new File(uploadPath, uploadFileName);
 
