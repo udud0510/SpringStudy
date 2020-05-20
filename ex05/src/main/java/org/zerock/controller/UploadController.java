@@ -9,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @Log4j
@@ -43,9 +45,28 @@ public class UploadController {
         log.info("upload ajax");
     }
 
+    // 오늘 날짜의 경로를 문자열로 생성
+    private String getFolder() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String str = sdf.format(date);
+
+        return str.replace("-", File.separator);
+    }
+
     @PostMapping("/uploadAjaxAction")
     public void uploadAjaxPost(MultipartFile[] uploadFile) {
         log.info("update ajax post......");
+        String uploadFolder = "C:/Users/susan/Downloads/spring/";
+
+        // make folder --------------
+        File uploadPath = new File(uploadFolder, getFolder());
+        log.info("upload path : " + uploadPath);
+
+        if (uploadPath.exists() == false) {
+            uploadPath.mkdirs();
+        }
+        // make yyyy/MM/dd folder
 
         for (MultipartFile multipartFile : uploadFile) {
             log.info("===============================");
@@ -58,7 +79,7 @@ public class UploadController {
             uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("/") + 1);
             log.info("only file name : " + uploadFileName);
 
-            File saveFile = new File(uploadFileName);
+            File saveFile = new File(uploadPath, uploadFileName);
 
             try {
                 multipartFile.transferTo(saveFile);
@@ -68,4 +89,5 @@ public class UploadController {
         }
 
     }
+
 }
