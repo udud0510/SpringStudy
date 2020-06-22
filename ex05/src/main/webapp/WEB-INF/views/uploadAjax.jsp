@@ -11,10 +11,35 @@
     <title>Insert title here</title>
 </head>
 <body>
+<style>
+    .uploadResult{
+        width:100%;
+        background-color: gray;
+    }
+    .uploadResult ul{
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .uploadResult ul li{
+        list-style: none;
+        padding: 10px;
+    }
+    .uploadResult ul li img{
+        width: 20px;
+    }
+</style>
+
 <h1>Upload with Ajax</h1>
 
 <div class="uploadDiv">
     <input type="file" name="uploadFile" multiple>
+</div>
+<div class="uploadResult">
+    <ul>
+
+    </ul>
 </div>
 
 <button id="uploadBtn">Upload</button>
@@ -39,6 +64,8 @@
             return true;
         }
 
+        var cloneObj = $(".uploadDiv").clone();
+
         $("#uploadBtn").on("click", function (e) {
             var formData = new FormData();
             var inputFile = $("input[name='uploadFile']");
@@ -54,6 +81,23 @@
                 formData.append("uploadFile", files[i]);
             }
 
+            var uploadResult = $(".uploadResult ul");
+
+            function showUploadedFile(uploadResultArr) {
+
+                var str = "";
+
+                $(uploadResultArr).each(function (i, obj) {
+
+                    if(!obj.image){
+                        str += "<li><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mail-attachment.svg/1024px-Mail-attachment.svg.png'>" + obj.fileName + "</li>";
+                    }else{
+                        str += "<li>" + obj.fileName + "</li>";
+                    }
+                });
+                uploadResult.append(str);
+            }
+
             $.ajax({
                 url: '/uploadAjaxAction',
                 processData: false,
@@ -63,6 +107,8 @@
                 dataType: 'json',
                 success: function (result) {
                     console.log(result);
+                    showUploadedFile(result);
+                    $(".uploadDiv").html(cloneObj.html());
                 }
             });
         });
