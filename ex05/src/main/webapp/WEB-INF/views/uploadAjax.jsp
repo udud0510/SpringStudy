@@ -12,21 +12,24 @@
 </head>
 <body>
 <style>
-    .uploadResult{
-        width:100%;
+    .uploadResult {
+        width: 100%;
         background-color: gray;
     }
-    .uploadResult ul{
+
+    .uploadResult ul {
         display: flex;
         flex-flow: row;
         justify-content: center;
         align-items: center;
     }
-    .uploadResult ul li{
+
+    .uploadResult ul li {
         list-style: none;
         padding: 10px;
     }
-    .uploadResult ul li img{
+
+    .uploadResult ul li img {
         width: 20px;
     }
 </style>
@@ -89,10 +92,13 @@
 
                 $(uploadResultArr).each(function (i, obj) {
 
-                    if(!obj.image){
+                    if (!obj.image) {
                         str += "<li><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Mail-attachment.svg/1024px-Mail-attachment.svg.png'>" + obj.fileName + "</li>";
-                    }else{
-                        str += "<li>" + obj.fileName + "</li>";
+                    } else {
+                        //str += "<li>" + obj.fileName + "</li>";
+                        var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+
+                        str += "<li><img src='/display?fileName=" + fileCallPath + "'><li>";
                     }
                 });
                 uploadResult.append(str);
